@@ -36,6 +36,7 @@ Task init {
     }
     Write-Output "Installing dependencies:`n$($dependencies | ConvertTo-Json)"
     Invoke-PSDepend $dependencies -Install -Force
+    New-Item -Path $OutputRoot -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
 }
 
 Task build -depends clean {
