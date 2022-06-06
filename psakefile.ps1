@@ -62,7 +62,7 @@ Task clean {
 
 Task publish_module {
     if ($env:ci_pipeline) {
-        Assert($null -ne $env:PSGALLERY_API_KEY)
+        Assert($null -ne $env:PSGALLERY_API_KEY) "PSGALLERY_API_KEY env var required to authenticate when publishing to the PSGallery"
         $Publish_Args = @{
             Name            = $Solution
             Path            = $PublishLocation
